@@ -9,7 +9,7 @@ rebase:output
 	mv ./result ${BUILD_DIR}
 
 output: main.o player.o unit.o
-	${CC} -o result main.o player.o unit.o -lncurses
+	${CC} -o result main.o player.o unit.o controller.o -lncurses
 
 main.o: main.cpp
 	${CC} -c ${START_DIR}/main.cpp
@@ -19,6 +19,9 @@ player.o: player.cpp
 
 unit.o: unit.cpp
 	${CC} -c ${START_DIR}/unit.cpp
+
+controller.o: controller.cpp
+	${CC} -c ${START_DIR}/controller.cpp
 
 clean:
 	rm -rf ${BUILD_DIR}/
