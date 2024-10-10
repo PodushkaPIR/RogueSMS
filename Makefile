@@ -1,17 +1,24 @@
 CC = g++
-all: output
+BUILD_DIR = build
+START_DIR = ${CURDIR}
+
+all: rebase
+
+rebase:output
+	mv *.o ${BUILD_DIR}
+	mv ./result ${BUILD_DIR}
 
 output: main.o player.o unit.o
 	${CC} -o result main.o player.o unit.o -lncurses
 
 main.o: main.cpp
-	${CC} -c main.cpp
+	${CC} -c ${START_DIR}/main.cpp
 
 player.o: player.cpp
-	${CC} -c player.cpp
+	${CC} -c ${START_DIR}/player.cpp
 
 unit.o: unit.cpp
-	${CC} -c unit.cpp
+	${CC} -c ${START_DIR}/unit.cpp
 
 clean:
-	rm *.o
+	rm -rf ${BUILD_DIR}/
