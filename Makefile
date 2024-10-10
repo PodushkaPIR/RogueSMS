@@ -5,10 +5,11 @@ START_DIR = ${CURDIR}
 all: rebase
 
 rebase:output
+	mkdir ${BUILD_DIR}
 	mv *.o ${BUILD_DIR}
 	mv ./result ${BUILD_DIR}
 
-output: main.o player.o unit.o
+output: main.o player.o unit.o controller.o
 	${CC} -o result main.o player.o unit.o controller.o -lncurses
 
 main.o: main.cpp
