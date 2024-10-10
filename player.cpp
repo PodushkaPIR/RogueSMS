@@ -1,4 +1,4 @@
-#include "player.h"
+#include "src/player.h"
 
 Player::Player(WINDOW* win, int y, int x, char c)
     : Unit(win, y, x, c) {

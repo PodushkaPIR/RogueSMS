@@ -1,5 +1,5 @@
 #include <ncurses.h>
-#include "player.h"
+#include "src/player.h"
 
 int main() {
     // NCURSES start
