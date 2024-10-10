@@ -1,18 +1,13 @@
 #include <ncurses.h>
-#include "src/player.h"
+#include "src/program.h"
 #include "src/controller.h"
+#include "src/Utility.h"
 
 int main() {
     // NCURSES start
-    initscr();
-    noecho();
-    cbreak();
-    curs_set(0);
+    Program program;
 
-    int yMax, xMax;
-    getmaxyx(stdscr, yMax, xMax);
-
-    WINDOW* playwin = newwin(8, xMax-12, yMax-8, 5);
+    WINDOW* playwin = newwin(PLAYWIN_HEIGHT, PLAYWIN_WIDTH , PLAYWIN_Y, PLAYWIN_X);
     box(playwin, 0, 0);
     refresh();
 
