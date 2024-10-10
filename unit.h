@@ -1,4 +1,6 @@
 #pragma once
+#include <ncurses.h>
+
 class Unit {
 public:
     Unit(WINDOW*, int, int, char);
@@ -11,7 +13,7 @@ public:
 
     int get_move();
 
-private:
+protected:
     int _xloc, _yloc, _xmax, _ymax;
     char _character;
     WINDOW * _curwin;
