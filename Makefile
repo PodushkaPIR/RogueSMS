@@ -5,12 +5,12 @@ START_DIR = ${CURDIR}
 all: rebase
 
 rebase:output
-	mkdir ${BUILD_DIR}
+	mkdir -p ${BUILD_DIR}
 	mv *.o ${BUILD_DIR}
 	mv ./result ${BUILD_DIR}
 
-output: main.o player.o unit.o controller.o
-	${CC} -o result main.o player.o unit.o controller.o -lncurses
+output: main.o player.o unit.o controller.o menu.o
+	${CC} -o result main.o player.o unit.o controller.o menu.o -lncurses
 
 main.o: main.cpp
 	${CC} -c ${START_DIR}/main.cpp
@@ -23,6 +23,9 @@ unit.o: unit.cpp
 
 controller.o: controller.cpp
 	${CC} -c ${START_DIR}/controller.cpp
+
+menu.o: menu.cpp
+	${CC} -c ${START_DIR}/menu.cpp
 
 clean:
 	rm -rf ${BUILD_DIR}/
