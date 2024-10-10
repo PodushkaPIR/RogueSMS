@@ -8,47 +8,31 @@ Unit::Unit(WINDOW* win, int y, int x, char c)
     getmaxyx(_curwin, _ymax, _xmax);   
 }
 
-void Unit::move_up() {
+void Unit::move_on_y(int delta) {
+    if(_yloc + delta > _ymax-2 || _yloc + delta < 1)
+        return ;
+
     mvwaddch(_curwin, _yloc, _xloc, ' ');
-    _yloc--;
-    if (_yloc < 1) {
-        _yloc = 1;
-    }
+    _yloc += delta;
 }
 
-void Unit::move_down() {
-    mvwaddch(_curwin, _yloc, _xloc, ' ');
-    _yloc++;
-    if (_yloc > _ymax - 2) {
-        _yloc = _ymax - 2;
-    }
-}
+void Unit::move_on_x(int delta) {
+    if(_xloc + delta > _xmax-2 || _xloc + delta < 1)
+        return ;
 
-void Unit::move_left() {
     mvwaddch(_curwin, _yloc, _xloc, ' ');
-    _xloc--;
-    if (_xloc < 1) {
-        _xloc = 1;
-    }
-}
-
-void Unit::move_right() {
-    mvwaddch(_curwin, _yloc, _xloc, ' ');
-    _xloc++;
-    if (_xloc > _xmax - 2) {
-        _xloc = _xmax - 2;
-    }
+    _xloc += delta;
 }
 
 void Unit::display() {
     mvwaddch(_curwin, _yloc, _xloc, _character);
 }
 
-int Unit::get_xloc() { return _xloc; };
-int Unit::get_yloc() { return _yloc; };
-int Unit::get_xmax() { return _xmax; };
-int Unit::get_ymax() { return _ymax; };
-char Unit::get_character() { return _character; };
-WINDOW* Unit::get_curwin() { return _curwin; };
+// int Unit::get_xloc() { return _xloc; };
+// int Unit::get_yloc() { return _yloc; };
+// int Unit::get_xmax() { return _xmax; };
+// int Unit::get_ymax() { return _ymax; };
+// char Unit::get_character() { return _character; };
+// WINDOW* Unit::get_curwin() { return _curwin; };
 
 
