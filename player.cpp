@@ -1,5 +1,8 @@
 #include "player.h"
 
+Player::Player(WINDOW* win, int y, int x, char c)
+    : Unit(win, y, x, c) {}
+
 void Player::keys() {
     // Well i think this function may to be modifying for custom keymaps
     keypad(_curwin, true);

@@ -2,8 +2,10 @@
 
 #include "unit.h"
 
-class Player: Unit {
+class Player: public Unit {
 public:
-    void keys();
+    Player(WINDOW*, int, int, char);
+
     int get_move();
+    void keys();
 };
