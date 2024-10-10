@@ -16,11 +16,11 @@ int main() {
     refresh();
     wrefresh(playwin);
 
-    Player * p = new Player(playwin, 1, 1, '@');
+    Player p = Player(playwin, 1, 1, '@');
     do {
-        p->display();
+        p.display();
         wrefresh(playwin);
-    } while (p->get_move() != '\n');
+    } while (p.get_move() != '\n');
 
     // END
     getch();
