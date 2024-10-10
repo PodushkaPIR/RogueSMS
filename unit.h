@@ -1,6 +1,4 @@
 #pragma once
-#include <ncurses.h>
-
 class Unit {
 public:
     Unit(WINDOW*, int, int, char);
