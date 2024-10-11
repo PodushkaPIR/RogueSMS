@@ -1,4 +1,4 @@
-#include "src/program.h"
+#include "../include/program.h"
 
 Program::Program() {
     initscr();

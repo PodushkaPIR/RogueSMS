@@ -1,31 +1,33 @@
+# Compiler
 CC = g++
+CFLAGS = -Iinclude -g
+
+# Folders
+SRC_DIR = src
+INCLUDE_DIR = include
 BUILD_DIR = build
-START_DIR = ${CURDIR}
+BIN_DIR = bin
 
-all: rebase
+# Files 
+SRCS = $(wildcard $(SRC_DIR)/*.cpp)
+OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
+EXEC = $(BIN_DIR)/program
 
-rebase:output
-	mkdir -p ${BUILD_DIR}
-	mv *.o ${BUILD_DIR}
-	mv ./result ${BUILD_DIR}
+# Linker Flags
+LDFLAGS = -lncurses
 
-output: main.o player.o unit.o controller.o program.o
-	${CC} -o result main.o player.o unit.o controller.o program.o -lncurses
+# Body
+all: $(EXEC)
 
-main.o: main.cpp
-	${CC} -c ${START_DIR}/main.cpp
+$(EXEC): $(OBJS)
+	@mkdir -p $(BIN_DIR)
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC) $(LDFLAGS)
 
-player.o: player.cpp
-	${CC} -c ${START_DIR}/player.cpp
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-unit.o: unit.cpp
-	${CC} -c ${START_DIR}/unit.cpp
-
-controller.o: controller.cpp
-	${CC} -c ${START_DIR}/controller.cpp
-
-program.o: program.cpp
-	${CC} -c ${START_DIR}/program.cpp
-
+# Clean project
 clean:
-	rm -rf ${BUILD_DIR}/
+	rm -rf $(BUILD_DIR) $(BIN_DIR)
+

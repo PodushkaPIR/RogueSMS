@@ -1,7 +1,7 @@
 #include <ncurses.h>
-#include "src/program.h"
-#include "src/controller.h"
-#include "src/Utility.h"
+#include "../include/program.h"
+#include "../include/controller.h"
+#include "../include/Utility.h"
 
 int main() {
     // NCURSES start

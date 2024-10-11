@@ -1,4 +1,4 @@
-#include "src/controller.h"
+#include "../include/controller.h"
 
 
 bool Controller::player_input() {
