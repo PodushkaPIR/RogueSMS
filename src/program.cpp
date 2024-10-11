@@ -9,5 +9,9 @@ Program::Program() {
     getmaxyx(stdscr, _height, _width);
 }
 
-int Program::get_width() { return _width; }
-int Program::get_height() { return _height; }
+int Program::get_width() {
+    return _width;
+}
+int Program::get_height() {
+    return _height;
+}

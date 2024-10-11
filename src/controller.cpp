@@ -1,9 +1,8 @@
 #include "../include/controller.h"
 
-
 bool Controller::player_input() {
     int choice = wgetch(_window_game);
-    switch(choice) {
+    switch (choice) {
         case KEY_UP:
             _player.move_on_y(-1);
             break;
@@ -27,6 +26,6 @@ bool Controller::player_input() {
 
 void Controller::display() {
     _player.display();
-    for(auto& entity : _entitys)
+    for (auto& entity : _entitys)
         entity.display();
 }
