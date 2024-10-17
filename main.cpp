@@ -1,7 +1,7 @@
 #include <ncurses.h>
 #include "src/player.h"
 #include "src/controller.h"
-#include "src/menu.h"
+#include "src/main_menu.h"
 
 int main() {
     // NCURSES start
@@ -14,7 +14,8 @@ int main() {
     getmaxyx(stdscr, yMax, xMax);
     int height = 8, width = xMax - 12, cursorY = 1, cursorX = 1;
     WINDOW* playwin = newwin(8, xMax-12, yMax-8, 5);
-    int next_window = Menu::start(playwin);
+    MainMenu menu = MainMenu(playwin);
+    int next_window = menu.start();
     clear();
     wclear(playwin);
     refresh();

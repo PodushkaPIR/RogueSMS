@@ -9,8 +9,8 @@ rebase:output
 	mv *.o ${BUILD_DIR}
 	mv ./result ${BUILD_DIR}
 
-output: main.o player.o unit.o controller.o menu.o
-	${CC} -o result main.o player.o unit.o controller.o menu.o -lncurses
+output: main.o player.o unit.o controller.o menu.o main_menu.o
+	${CC} -o result main.o player.o unit.o controller.o menu.o main_menu.o -lncurses -g
 
 main.o: main.cpp
 	${CC} -c ${START_DIR}/main.cpp
@@ -26,6 +26,9 @@ controller.o: controller.cpp
 
 menu.o: menu.cpp
 	${CC} -c ${START_DIR}/menu.cpp
+
+main_menu.o: main_menu.cpp
+	${CC} -c ${START_DIR}/main_menu.cpp
 
 clean:
 	rm -rf ${BUILD_DIR}/
