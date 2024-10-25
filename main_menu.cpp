@@ -25,4 +25,5 @@ int MainMenu::start(){
             return -1;
         }
     }
+    return -1;
 }
