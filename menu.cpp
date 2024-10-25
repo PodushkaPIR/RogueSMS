@@ -1,5 +1,4 @@
 #include "src/menu.h"
-#include <fstream>
 
 Menu::Menu() = default;
 Menu::Menu(WINDOW* win, int lines, std::string* array_choices)
@@ -76,10 +75,6 @@ int Menu::start(){
     refresh();
     wrefresh(menuwin);
     keypad(menuwin, true);
-    std::ofstream out("debug.txt");
-    out << "!";
-    //out << *choices;
-    out << "!";
     return working_cycle();
 }
 
