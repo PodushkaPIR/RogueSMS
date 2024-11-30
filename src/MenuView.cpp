@@ -9,14 +9,15 @@ int MenuView::get_selected_option() const {
 
 void MenuView::render() const {
     mvwprintw(_window, 0, 1, "Menu");
-    for (int i = 0; i < _options.size(); ++i) {
+    int n = _options.size();
+    for (int i = 0; i < n; ++i) {
         if (i == _selected_option) {
             wattron(_window, A_REVERSE);
-            mvwprintw(_window, i + 2, 1, _options[i].c_str());
+            mvwprintw(_window, i + 2, 1, "%s", _options[i].c_str());
             wattroff(_window, A_REVERSE);
         }
         else {
-            mvwprintw(_window, i + 2, 1, _options[i].c_str());
+            mvwprintw(_window, i + 2, 1, "%s", _options[i].c_str());
         }
     }
     refresh_window();
@@ -28,9 +29,11 @@ void MenuView::handle_input(int ch) {
             if (_selected_option > 0) {
                 _selected_option--;
             } 
+            break;
         case KEY_DOWN:
-            if (_selected_option < _options.size() - 1) {
+            if (_selected_option < static_cast<int>(_options.size() - 1)) {
                 _selected_option++;
             }
+            break;
     } 
 }

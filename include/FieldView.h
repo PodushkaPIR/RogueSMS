@@ -1,9 +1,9 @@
 #pragma once
 #include "AbstractWindow.h"
 
-class GameFieldView : public AbstractWindow {
+class FieldView : public AbstractWindow {
 public:
-    GameFieldView(int width, int height, int start_x, int start_y);
+    FieldView(int width, int height, int start_x, int start_y);
 
     void render() const override;
 

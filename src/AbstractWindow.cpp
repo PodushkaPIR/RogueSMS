@@ -14,3 +14,6 @@ void AbstractWindow::refresh_window() const {
     wrefresh(_window);
 }
 
+WINDOW* AbstractWindow::get_window() const {
+    return _window;
+}

@@ -1,3 +1,4 @@
+#pragma once
 #include "UnitModel.h"
 
 class EnemyModel : public UnitModel {
