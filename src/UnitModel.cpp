@@ -1,23 +1,22 @@
 #include "../include/UnitModel.h"
 
 UnitModel::UnitModel(int x, int y, char symbol)
-    : _x(x), _y(y), _symbol(symbol) {
-
+    : x_(x), y_(y), symbol_(symbol) {
 }
 
-void UnitModel::move(int dx, int dy) {
-    _x += dx;
-    _y += dy;
+void UnitModel::move(const int dx, const int dy) {
+    x_ += dx;
+    y_ += dy;
 }
 
 int UnitModel::get_x() const {
-    return _x;
+    return x_;
 }
 
 int UnitModel::get_y() const {
-    return _y;
+    return y_;
 }
 
 char UnitModel::get_symbol() const {
-    return _symbol;
+    return symbol_;
 }
