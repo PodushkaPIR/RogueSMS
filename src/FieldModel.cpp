@@ -1,12 +1,12 @@
 #include "../include/FieldModel.h"
 
-FieldModel::FieldModel(int width, int height) 
-    : _width(width), _height(height) {}
+FieldModel::FieldModel(const int width, const int height)
+    : width_(width), height_(height) {}
 
 int FieldModel::get_width() const {
-    return _width;
+    return width_;
 }
 
 int FieldModel::get_height() const {
-    return _height;
+    return height_;
 }

@@ -3,14 +3,17 @@
 
 class AbstractWindow {
 protected:
-    WINDOW* _window;
-    int _width, _height, _start_x, _start_y;
+    WINDOW *window_;
+    int width_, height_, start_x_, start_y_;
 
 public:
     AbstractWindow(int width, int height, int start_x, int start_y);
-    WINDOW* get_window() const;
+
+    [[nodiscard]] WINDOW *get_window() const;
+
     virtual ~AbstractWindow();
+
     virtual void render() const = 0;
+
     virtual void refresh_window() const;
 };
-

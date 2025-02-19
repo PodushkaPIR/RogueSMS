@@ -1,6 +1,9 @@
+#pragma once
 #include "UnitModel.h"
 
-class PlayerModel : public UnitModel {
+class PlayerModel final : public UnitModel {
 public:
-    PlayerModel(int x, int y, char symbol);
+    PlayerModel(const int x, const int y, const char symbol)
+        : UnitModel(x, y, symbol) {
+    }
 };

@@ -9,7 +9,13 @@ find_package(Curses REQUIRED)
 file(GLOB SOURCES "src/*.cpp")
 include_directories(${CURSES_INCLUDE_DIR})
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES}
+        include/PlayerController.h
+        include/Controller.h
+        src/PlayerController.cpp
+        include/MenuController.h
+        src/MenuController.cpp
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(${PROJECT_NAME} PRIVATE ${CURSES_LIBRARIES})

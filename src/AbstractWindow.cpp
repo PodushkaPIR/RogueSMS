@@ -1,19 +1,19 @@
 #include "../include/AbstractWindow.h"
 
-AbstractWindow::AbstractWindow(int width, int height, int start_x, int start_y) 
-    : _width(width), _height(height), _start_x(start_x), _start_y(start_y) {
-    _window = newwin(_height, _width, _start_y, _start_x);
-    box(_window, 0, 0);
+AbstractWindow::AbstractWindow(const int width, const int height, const int start_x, const int start_y)
+    : width_(width), height_(height), start_x_(start_x), start_y_(start_y) {
+    window_ = newwin(height_, width_, start_y_, start_x_);
+    box(window_, 0, 0);
 }
 
 AbstractWindow::~AbstractWindow() {
-    delwin(_window);
+    delwin(window_);
 }
 
 void AbstractWindow::refresh_window() const {
-    wrefresh(_window);
+    wrefresh(window_);
 }
 
-WINDOW* AbstractWindow::get_window() const {
-    return _window;
+WINDOW *AbstractWindow::get_window() const {
+    return window_;
 }
